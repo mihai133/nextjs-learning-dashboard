@@ -40,24 +40,24 @@ export async function authenticate(
   }
 }
 
-// export async function signup(
-//   prevState: string | undefined,
-//   formData: FormData
-// ) {
-//   try {
-//     await signIn('credentials', formData)
-//   } catch (error) {
-//     if (error instanceof AuthError) {
-//       switch (error.type) {
-//         case 'CredentialsSignup':
-//           return 'Invalid credentials';
-//         default:
-//           return 'Something went wrong'
-//       }
-//     }
-//     throw error
-//   }
-// }
+export async function signup(
+  prevState: string | undefined,
+  formData: FormData
+) {
+  try {
+    await signIn('credentials', formData)
+  } catch (error) {
+    if (error instanceof AuthError) {
+      switch (error.type) {
+        case 'CredentialsSignup':
+          return 'Invalid credentials';
+        default:
+          return 'Something went wrong'
+      }
+    }
+    throw error
+  }
+}
 
 const CreateInvoice = FormSchema.omit({ id: true, date:true });
 
